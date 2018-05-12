@@ -3,8 +3,12 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+
 import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { SelectFormsPageModule } from './select-forms-page/select-forms-page.module';
+
+import { FormService } from './services/form/form.service';
 
 
 @NgModule({
@@ -16,7 +20,9 @@ import { SelectFormsPageModule } from './select-forms-page/select-forms-page.mod
     AppRoutingModule,
     SelectFormsPageModule
   ],
-  providers: [],
+  providers: [
+    FormService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

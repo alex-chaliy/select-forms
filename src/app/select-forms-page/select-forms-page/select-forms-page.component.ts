@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Form } from '../../models/form/Form';
+import { FormService } from '../../services/form/form.service';
 
 @Component({
   selector: 'app-select-forms-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectFormsPageComponent implements OnInit {
 
-  constructor() { }
+  availableForms: Form[];
+  selectedForms: Form[];
+
+  constructor(
+    private formService: FormService
+  ) {}
 
   ngOnInit() {
+    this.formService.getForms()
+      .subscribe(forms => this.availableForms = forms);
   }
 
 }

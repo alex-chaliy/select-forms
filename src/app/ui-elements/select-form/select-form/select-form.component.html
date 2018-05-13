@@ -1,0 +1,25 @@
+<div class="forms"
+  *ngFor="let form of _forms"
+>
+  <label> <b *ngIf="form.required">*</b> {{form.name}} </label>
+  <select [disabled]="form.required || !!form.selectedValue"
+    [(ngModel)]="form.selectedValue"
+    (change)="onSelectChanged()">
+    <option [value]="form.selectedValue" *ngIf="form.selectedValue">
+      {{form.selectedValue}}
+    </option>
+    <option [value]="value" *ngFor="let value of form.values">
+      {{value}}
+    </option>
+  </select>
+</div>
+
+<div class="controls">
+  <button title="Add New"
+    (click)="addNew()"
+    *ngIf="isAddOperationAvailable">+</button>
+  <button title="Remove Last"
+    (click)="removeLast()">x</button>
+</div>
+
+<p class="message"> {{statusMessage}} </p>

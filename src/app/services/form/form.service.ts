@@ -15,9 +15,9 @@ export class FormService {
           required: true,
           selectedValue: 'title 1',
           values: [
-            'title 1',
             'title 2',
-            'title 3'
+            'title 3',
+            'title 4'
           ]
         }),
         new Form({
@@ -25,9 +25,9 @@ export class FormService {
           required: true,
           selectedValue: 'statement 1',
           values: [
-            'statement 1',
             'statement 2',
-            'statement 3'
+            'statement 3',
+            'statement 4'
           ]
         }),
         new Form({

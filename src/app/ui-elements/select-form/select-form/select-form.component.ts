@@ -10,14 +10,10 @@ import * as _ from 'lodash';
 export class SelectFormComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('Check Add Operation availability when data comes to the component');
-
-    // just for test. remove it
-    // this._forms.pop();
-
     this.checkAddOperationAvailability();
   }
 
-  @Input('selectedForms') _selectedForms: Form[];
+  @Input('selectedForms') _selectedForms: Form[] = [];
   @Input('forms') _forms: Form[];
 
   isAddOperationAvailable: boolean = true;

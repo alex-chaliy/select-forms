@@ -18,7 +18,7 @@ import { FormService } from './services/form/form.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SelectFormsPageModule
+    SelectFormsPageModule,
   ],
   providers: [
     FormService

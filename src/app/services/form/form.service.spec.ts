@@ -18,9 +18,22 @@ describe('FormService', () => {
     expect(service).toBeTruthy();
   }));
 
-  
-  it('#getForms should return forms array from observable', () => {
-    expect(service.getForms());
-    // .toBe(new Observable(o => o.next()));
+
+  it('getForms() should return forms array from observable.', () => {
+    service.getForms()
+      .subscribe(forms => {
+        console.log('FormService.getForms() - forms: \n ', forms);
+        expect(Array.isArray(forms)).toBe(true);
+      });
+  });
+
+  it('getValues() should return all values of all forms from observable. Values should be array of strings.', () => {
+    service.getValues()
+      .subscribe(values => {
+        console.log('FormService.getValues() - all values of all forms \n ', values);
+        if (values[0]) {
+          expect(typeof values[0]).toBe('string');
+        }
+      });
   });
 });

@@ -1,6 +1,12 @@
+///<reference path="../../../../node_modules/rxjs/add/operator/map.d.ts"/>
 import { Injectable } from '@angular/core';
 import { Form } from '../../models/form/Form';
 import { Observable } from 'rxjs/Observable';
+import { map, mergeMap, concatMap, switchMap } from 'rxjs/operators';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/concatMap';
+import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class FormService {
@@ -43,6 +49,15 @@ export class FormService {
       ];
       observer.next(data);
     });
+  }
+
+  getValues(): Observable<any> {
+    let values: string[] = [];
+    return this.getForms()
+      .map(forms => {
+        forms.map(form => values.push(...form.values));
+        return values;
+      });
   }
 
 }
